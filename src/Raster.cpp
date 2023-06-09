@@ -197,7 +197,7 @@ int main(int argc, char *argv[]) {
 
                         glm::vec3 v = glm::normalize(world->eyep - worldTrianglePos);
 
-                        // Blinn-Phong lighting (I am sad.)
+                        // Blinn-Phong lighting
                         for (auto light : world->lights) {
                             color += triangle.surface.ambient * light.intensity;
                             
@@ -225,8 +225,6 @@ int main(int argc, char *argv[]) {
     }
 
     // Writing to PPM.
-    // Stole this from my old trace project, because I did not want
-    // to rewrite this... hell.
     std::fstream ppmfile(std::string(PROJECT_BUILD_DIR) + "raster.ppm", std::ios::out | std::ios::binary);
 
 	if (ppmfile.fail()) {
